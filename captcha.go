@@ -88,6 +88,13 @@ func NewLen(length int) (id string) {
 	return
 }
 
+// NewSequence allows to generate captcha with predefined value
+func NewSequence(seq []byte) (id string) {
+	id = randomId()
+	globalStore.Set(id, seq)
+	return
+}
+
 // Reload generates and remembers new digits for the given captcha id.  This
 // function returns false if there is no captcha with the given id.
 //
